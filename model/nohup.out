@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "single_experiment.py", line 4, in <module>
+    from vaemodel import Model
+  File "/home/huangchong/2021_work/DR_GZSL/model/vaemodel.py", line 4, in <module>
+    import torch
+  File "/home/huangchong/anaconda3/envs/aren/lib/python3.6/site-packages/torch/__init__.py", line 250, in <module>
+    _C._initExtension(manager_path())
+  File "/home/huangchong/anaconda3/envs/aren/lib/python3.6/site-packages/torch/cuda/__init__.py", line 461, in <module>
+    from .random import *
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 764, in get_code
+  File "<frozen importlib._bootstrap_external>", line 832, in get_data
+KeyboardInterrupt

@@ -1,0 +1,1 @@
+python single_experiment.py --dataset CUB --num_shots 0 --generalized True --train_classifier_only False
