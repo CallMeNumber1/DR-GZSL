@@ -1,6 +1,6 @@
 ## baseline: CADA-VAE
 基于CADA—VAE实现AAAI2021将解耦用于GZSL的文章。
-
+![image](https://github.com/CallMeNumber1/DR-GZSL/blob/master/model.png)
 #### 实现细节
 - 目前shuffle classification loss的权重因子设为5，学习率为0.01，然后训练解耦VAE。
 - 训练好VAE后，再训练最终分类器，最高可达0.535
