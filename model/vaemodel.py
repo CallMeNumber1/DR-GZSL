@@ -225,8 +225,7 @@ class Model(nn.Module):
         loss_v = self.shuffle_classification_criterion(out_v, label)
         loss_s = self.shuffle_classification_criterion(out_s, label)
         shuffle_classification_loss = loss_v + loss_s
-        print('loss_v:{}, loss_s:{}, shuffle loss:{}'.format(loss_v, loss_s, shuffle_classification_loss))
-
+        
         ##############################################
         # scale the loss terms according to the warmup
         # schedule
@@ -252,6 +251,11 @@ class Model(nn.Module):
 
         loss = reconstruction_loss - beta * KLD
 
+        print('-'*30)
+        print('loss_v:{}, loss_s:{}, shuffle loss:{}'.format(loss_v, loss_s, shuffle_classification_loss))
+        print('reconstruction_loss:', reconstruction_loss)
+        print('KLD_img:{}, KLD_att:{}, KLD:{}'.format(KLD_img, KLD_att, KLD))
+        print('reconstruction-beta*KLD:', loss)
         if cross_reconstruction_loss>0:
             loss += cross_reconstruction_factor*cross_reconstruction_loss
         if distance_factor >0:
@@ -259,7 +263,10 @@ class Model(nn.Module):
 
         shuffle_factor = self.shuffle_factor
         loss += shuffle_factor*shuffle_classification_loss
-
+        print('cross_reconstruction_loss:', cross_reconstruction_loss)
+        print('distance_loss:', distance)
+        print('total loss:', loss)
+        print('-'*30)
         loss.backward()
 
         self.optimizer.step()

@@ -196,16 +196,17 @@ elif hyperparameters['generalized']==False:
 print(max(acc))
 
 if args.train_classifier_only == False:
-    state = {
-                'state_dict': model.state_dict() ,
-                'hyperparameters':hyperparameters,
-                'encoder':{},
-                'decoder':{}
-            }
-    for d in model.all_data_sources:
-        state['encoder'][d] = model.encoder[d].state_dict()
-        state['decoder'][d] = model.decoder[d].state_dict()
+    pass
+    # state = {
+    #             'state_dict': model.state_dict() ,
+    #             'hyperparameters':hyperparameters,
+    #             'encoder':{},
+    #             'decoder':{}
+    #         }
+    # for d in model.all_data_sources:
+    #     state['encoder'][d] = model.encoder[d].state_dict()
+    #     state['decoder'][d] = model.decoder[d].state_dict()
 
-    saved_dir = '../saved_models/DA-VAE_'+str(hyperparameters['epochs'])+'_'+str(hyperparameters['shuffle_factor'])+'_'+str(hyperparameters['sc_lr'])+'.pth.tar'
-    torch.save(state, saved_dir)
-    print('>> saved:{}'.format(saved_dir))
+    # saved_dir = '../saved_models/DA-VAE_'+str(hyperparameters['epochs'])+'_'+str(hyperparameters['shuffle_factor'])+'_'+str(hyperparameters['sc_lr'])+'.pth.tar'
+    # torch.save(state, saved_dir)
+    # print('>> saved:{}'.format(saved_dir))
